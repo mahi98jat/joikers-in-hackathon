@@ -12,7 +12,7 @@ const Chat = ({ location }) => {
   const [room, setRoom] = useState("");
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
-  const ENDPOINT = "https://afternoon-plateau-67070.herokuapp.com/"; //localhost:5000"; //endpoint(route) for chat; https://afternoon-plateau-67070.herokuapp.com/
+  const ENDPOINT = "https://afternoon-plateau-67070.herokuapp.com/"; //localhost:5000; //endpoint(route) for chat; https://afternoon-plateau-67070.herokuapp.com/
   //location comes from react-router
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
