@@ -38,4 +38,5 @@ const AllOrders = styled.div`
   width: 100%;
   min-height: 25rem;
   background-color: rgb(233, 234, 234);
+  margin-top: 7rem;
 `;
