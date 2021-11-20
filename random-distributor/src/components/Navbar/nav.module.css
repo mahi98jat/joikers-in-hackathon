@@ -7,7 +7,7 @@
   position: fixed;
   top: 0px;
   z-index: 1;
-  margin-bottom: 100px;
+  /* margin-bottom: 100px; */
 }
 
 .navbar > div:nth-child(1) {

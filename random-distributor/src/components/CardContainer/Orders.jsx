@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { SingleOrder } from './SingleOrder';
 import axios from 'axios';
 
-export const Orders = () => {
+export const Orders = ({result}) => {
 
     const [data, setData] = useState([])
     
@@ -23,11 +23,15 @@ export const Orders = () => {
         }
     }
 
+    
+
     return (
-        <AllOrders>
-            {data.map((e) => < SingleOrder key={e._id}  {...e} />)}
-        </AllOrders>
-    )
+      <AllOrders>
+        {result.length === 0
+          ? data.map((e) => <SingleOrder key={e._id} {...e} />)
+          : result.map((e) => <SingleOrder key={e._id} {...e} />)}
+      </AllOrders>
+    );
 }
 
 

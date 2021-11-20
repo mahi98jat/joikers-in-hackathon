@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import { BsChatRightQuote } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 export const SingleOrder = ({ customer_name, date, destination, house_no, image, mob, pincode, size, source, status, weight,_id }) => {
   const [isStatus,setIsStatus]=useState(status)
@@ -28,41 +30,51 @@ export const SingleOrder = ({ customer_name, date, destination, house_no, image,
     return (
       <Container>
         <div className="image">
-          <img
-            src={image}
-            alt=""
-          />
+          <img src={image} alt="" />
           {/* <p>product Name :XXXXXX</p> */}
         </div>
         <div className="packageDetails">
           <h3>Courier Details</h3>
           <p>
-            Box size : <span>{ size}</span>
+            Box size : <span>{size}</span>
           </p>
           <p>
-            Box Weight :<span>{ weight}</span>
+            Box Weight :<span>{weight}</span>
           </p>
         </div>
         <div className="deliveryAddress">
           <h3>Deliver Address</h3>
           <p>
-            Customer Name :<span>{" "} { customer_name}</span>
+            Customer Name :<span> {customer_name}</span>
           </p>
           <p>
-            PIncode :<span>{ pincode}</span>5
+            PIncode :<span>{pincode}</span>5
           </p>
           <p>
-            Phone :<span>{ mob}</span>5
+            Phone :<span>{mob}</span>5
           </p>
           <p>
-            Locality :<span>{ destination}</span>
+            Locality :
+            <span>
+              {destination}, {source}
+            </span>
           </p>
           <p>
-            House No :<span>{ house_no}</span>
+            House No :<span>{house_no}</span>
           </p>
         </div>
         <div className="confirmation">
-          <button onClick={() => { handleStatus(_id) }}>{ !isStatus? `Confirm delivery`: `Out for delivery`}</button>
+          <button
+            onClick={() => {
+              handleStatus(_id);
+            }}
+          >
+            {!isStatus ? `Confirm delivery` : `Out for delivery`}
+          </button>
+          <Link to={`/chats/:${customer_name}`}>
+            <BsChatRightQuote className="chat" />
+          </Link>
+          <p className="hide">Chat</p>
         </div>
       </Container>
     );
@@ -82,7 +94,7 @@ const Container = styled.div`
   border-radius: 5px;
   .image {
     margin-left: 2rem;
-   /* border: 1px solid red;  */
+    /* border: 1px solid red;  */
     height: 16rem;
     width: 14rem;
     margin-right: 1rem;
@@ -92,11 +104,11 @@ const Container = styled.div`
       margin: 1rem auto 0rem;
       height: 12rem;
       width: 14rem;
-     // border: 1px solid red;
+      // border: 1px solid red;
     }
   }
   .packageDetails {
-  //  border: 1px solid black;
+    //  border: 1px solid black;
     width: 13rem;
     text-align: left;
     p {
@@ -111,16 +123,16 @@ const Container = styled.div`
     }
   }
   .deliveryAddress {
-   // border: 1px solid black;
-   text-align: left;
+    // border: 1px solid black;
+    text-align: left;
     width: 13rem;
     p {
       font-size: 0.9rem;
       color: #606060;
       font-weight: 600;
     }
-    span{
-        font-weight: normal;
+    span {
+      font-weight: normal;
     }
   }
   .confirmation {
@@ -129,7 +141,8 @@ const Container = styled.div`
     width: 9rem;
     height: 16rem;
     margin-right: 1rem;
-   // border: 1px solid red;
+    position: relative;
+    // border: 1px solid red;
 
     button {
       transform: translateY(390%);
@@ -140,6 +153,30 @@ const Container = styled.div`
       color: white;
       border: none;
       cursor: pointer;
+    }
+    .hide {
+      display: none;
+      background-color: #7c7979;
+      color: white;
+      font-weight: 600;
+      width: 2.5rem;
+      height: 1.5rem;
+      border-radius: .3rem;
+      align-items: center;
+      justify-content: center;
+      padding-left: 10px;
+      position: absolute;
+      top: 3rem;
+      right: -2.2rem;
+    }
+    .chat {
+      color: rgb(84, 4, 194);
+      font-size: 2rem;
+      margin-left: 6rem;
+      cursor: pointer;
+      &:hover+.hide{
+        display: block;
+      }
     }
   }
 `;
