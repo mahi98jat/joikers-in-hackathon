@@ -23,14 +23,14 @@ export const Orders = ({result}) => {
         }
     }
 
-    
+    console.log(result,"result");
 
     return (
-      <AllOrders>
-        {result.length === 0
-          ? data.map((e) => <SingleOrder key={e._id} {...e} />)
-          : result.map((e) => <SingleOrder key={e._id} {...e} />)}
-      </AllOrders>
+        <AllOrders>
+        
+            {data.length>0&&data.map((e) => <SingleOrder key={e._id} {...e} />)}
+           {/* : result.map((e) => <SingleOrder key={e._id} {...e} />)} */}
+        </AllOrders>
     );
 }
 

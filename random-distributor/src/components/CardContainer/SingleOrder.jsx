@@ -71,7 +71,14 @@ export const SingleOrder = ({ customer_name, date, destination, house_no, image,
           >
             {!isStatus ? `Confirm delivery` : `Out for delivery`}
           </button>
-          <Link to={`/chats/:${customer_name}`}>
+          <Link //</div>to={`/chat?name=${customer_name}&room=2`}
+            onClick={(event) =>
+              !customer_name ? event.preventDefault() : null
+            }
+            to={`/chat?name=${customer_name}&room=jokers`}
+            // to="/chat"
+            className="links"
+          >
             <BsChatRightQuote className="chat" />
           </Link>
           <p className="hide">Chat</p>
@@ -161,7 +168,7 @@ const Container = styled.div`
       font-weight: 600;
       width: 2.5rem;
       height: 1.5rem;
-      border-radius: .3rem;
+      border-radius: 0.3rem;
       align-items: center;
       justify-content: center;
       padding-left: 10px;
@@ -174,8 +181,12 @@ const Container = styled.div`
       font-size: 2rem;
       margin-left: 6rem;
       cursor: pointer;
-      &:hover+.hide{
+    }
+    .links {
+      &:hover + .hide {
         display: block;
+        /* background-color: red; */
+        /* color: black; */
       }
     }
   }
