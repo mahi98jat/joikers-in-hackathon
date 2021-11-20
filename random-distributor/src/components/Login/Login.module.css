@@ -1,0 +1,85 @@
+body {
+  background: #201e37;
+}
+
+.background_login {
+  width: 100%;
+  /* height: 92.4vh; */
+  /* height: 86.4vh; */
+  /* background: #393e46; */
+  background: #201e37;
+  color: aliceblue;
+  padding-top: 100px;
+}
+
+.login_div {
+  width: 32%;
+  margin: auto;
+  /* background: #222831; */
+  background: #2e4c6d;
+  padding: 20px 43px 25px;
+  border-radius: 8px;
+}
+
+.login_div > h1 {
+  color: #eeeeee;
+  text-align: center;
+  margin: 15px 0;
+}
+
+.buttonsDiv {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  /* border: 1px solid red; */
+}
+
+.hide {
+  /* padding: -10px; */
+  width: 190px;
+  height: 50px;
+  background-color: #2e4c6d;
+}
+
+.login_btn {
+  display: flex;
+  width: 200px;
+  align-items: center;
+  font-size: 18px;
+  background-color: #3f7ee8;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  border-radius: 4px;
+  margin-left: -11px;
+  /* margin: auto; */
+}
+.fb_btn {
+  display: flex;
+  /* width: 170px; */
+  align-items: center;
+  font-size: 18px;
+  background-color: #3f7ee8;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  border-radius: 4px;
+  /* margin: auto; */
+}
+
+.signLogo {
+  width: 50px;
+  height: 50px;
+  /* background-color: white; */
+  padding-right: 8px;
+  margin: 1px 0 1px -4px;
+  /* margin-top: -2px; */
+}
+
+@media only screen and (max-width: 600px) {
+  .login_div {
+    width: 94%;
+  }
+}
