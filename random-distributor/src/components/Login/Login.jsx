@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -7,6 +7,7 @@ import styles from "./Login.module.css"
 import signupLogo from './Img/signupLogo.png'
 import facebook from './Img/facebook.png'
 import { GoogleLogin } from "react-google-login";
+import { useHistory } from 'react-router-dom';
 
 
 const clientId =
@@ -14,17 +15,36 @@ const clientId =
 
 
 const Login = () => {
+    const [showloginButton, setShowloginButton] = useState(true);
+    const [showlogoutButton, setShowlogoutButton] = useState(false);
+    const history = useHistory();
 
     const onLoginSuccess = (res) => {
         console.log("Login Success:", res.profileObj);
+        console.log("Login Success:", res.profileObj);
+        if (res.profileObj) {
+            // history.push('/products')
+        }
+        setShowloginButton(false);
+        setShowlogoutButton(true);
 
     };
 
     const onLoginFailure = (res) => {
         console.log("Login Failed:", res);
+
     };
 
+    const onSignoutSuccess = () => {
+        alert("You have been logged out successfully");
+        console.clear();
+        setShowloginButton(true);
+        setShowlogoutButton(false);
+    };
 
+    // if (showlogoutButton) {
+    //     history.push('/products')
+    // }
 
     return (
         <div className={styles.background_login}>
@@ -52,6 +72,7 @@ const Login = () => {
                 }} >Login</Button>
 
                 <div className={styles.buttonsDiv}>
+
                     <GoogleLogin clientId={clientId}
                         buttonText=""
                         icon={false}
