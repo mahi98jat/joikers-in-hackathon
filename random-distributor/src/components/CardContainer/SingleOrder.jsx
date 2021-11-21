@@ -75,7 +75,7 @@ export const SingleOrder = ({ customer_name, date, destination, house_no, image,
             onClick={(event) =>
               !customer_name ? event.preventDefault() : null
             }
-            to={`/chat?name=${customer_name}&room=jokers`}
+            to="/join"
             // to="/chat"
             className="links"
           >

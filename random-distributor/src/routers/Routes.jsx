@@ -24,7 +24,7 @@ export const Routes = () => {
           <Nav setResult={setResult} />
           <Orders result={result} />
         </Route>
-        {/* <Route path="/chat" exact component={Join}></Route> */}
+        <Route path="/join" exact component={Join}></Route>
         <Route path="/chat" component={Chat}></Route>
       </Switch>
     </>

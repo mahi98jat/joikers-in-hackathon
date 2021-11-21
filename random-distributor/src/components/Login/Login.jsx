@@ -23,7 +23,7 @@ const Login = () => {
         console.log("Login Success:", res.profileObj);
         console.log("Login Success:", res.profileObj);
         if (res.profileObj) {
-            // history.push('/products')
+            history.push('/products')
         }
         setShowloginButton(false);
         setShowlogoutButton(true);
