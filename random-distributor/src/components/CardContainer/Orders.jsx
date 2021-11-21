@@ -1,12 +1,12 @@
-import { useState ,useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components'
 import { SingleOrder } from './SingleOrder';
 import axios from 'axios';
 
-export const Orders = () => {
+export const Orders = ({ result }) => {
 
     const [data, setData] = useState([])
-    
+
     useEffect(() => {
         getData()
     }, [])
@@ -23,11 +23,15 @@ export const Orders = () => {
         }
     }
 
+    console.log(result, "result");
+
     return (
         <AllOrders>
-            {data.map((e) => < SingleOrder key={e._id}  {...e} />)}
+
+            {result.length === 0 ? data.map((e) => <SingleOrder key={e._id} {...e} />)
+                : result.map((el) => <SingleOrder key={el._id} {...el} />)}
         </AllOrders>
-    )
+    );
 }
 
 
